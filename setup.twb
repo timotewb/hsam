@@ -8,20 +8,15 @@ az account list-locations
 az group create --name hsam-rg --location australiasoutheast
 az postgres flexible-server create --tier Burstable --sku-name Standard_B1ms --public-access all --database-name hsam-db --admin-user hsam --admin-password hsamdb1
 
-{
-  "connectionString": "postgresql://hsam:hsamdb1@server930966273.postgres.database.azure.com/postgres?sslmode=require",
-  "databaseName": "hsam-db",
-  "firewallName": "AllowAll_2022-2-20_19-33-22",
-  "host": "server930966273.postgres.database.azure.com",
-  "id": "/subscriptions/d64a91af-2d7a-4b1d-a400-f36b1598367c/resourceGroups/hsam-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/server930966273",
-  "location": "Australia Southeast",
-  "password": "hsamdb1",
-  "resourceGroup": "hsam-rg",
-  "skuname": "Standard_B1ms",
-  "username": "hsam",
-  "version": "13"
-}
+
 
 az webapp up --name hsam-app --sku B1
 az webapp config appsettings set --settings DBHOST="server930966273.postgres.database.azure.com" DBUSER="hsam" DBPASS="hsamdb1" DBNAME="hsam-db"
 az webapp ssh
+
+python manage.py migrate
+python manage.py createsuperuser
+> hsam
+> hsamapp1
+
+az webapp browse
