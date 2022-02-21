@@ -11,7 +11,7 @@ az postgres flexible-server create --tier Burstable --sku-name Standard_B1ms --p
 {
   "connectionString": "postgresql://hsam:hsamdb1@server930966273.postgres.database.azure.com/postgres?sslmode=require",
   "databaseName": "hsam-db",
-  "firewallName": "AllowAll_2022-2-19_13-57-11",
+  "firewallName": "AllowAll_2022-2-20_19-33-22",
   "host": "server930966273.postgres.database.azure.com",
   "id": "/subscriptions/d64a91af-2d7a-4b1d-a400-f36b1598367c/resourceGroups/hsam-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/server930966273",
   "location": "Australia Southeast",
